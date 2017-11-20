@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>台中市公車動態資訊</title>
+    <link rel="stylesheet" href="css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/all.css"/>
+    <link rel="shortcut icon" href="img/bus.ico"/>
+  </head>
+  <body>
+    <div class="container">
+      <header id="header">
+        <h1>台中市公車動態資訊
+          <p id="now-position">您現在的位置</p>
+        </h1>
+        <h2>請選擇行車方向</h2>
+        <div id="bus-way-chose">
+          <button id="go" type="button" class="btn"> 往</button>
+          <button id="back" type="button" class="btn"> 往</button>
+        </div>
+      </header>
+      <ul id="bus-way-list">
+      </ul>
+    </div>
+  </body>
+  <script src="js/way.js"></script>
+</html>
