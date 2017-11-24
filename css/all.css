@@ -46,52 +46,52 @@ table {
 /*至此結束Reset*/
 @-webkit-keyframes breathe {
   0% {
-    width: 61.8px;
-    height: 61.8px;
-    top: 9.1px;
+    width: 92.7px;
+    height: 92.7px;
+    top: 13.65px;
     left: 38.2px; }
   50% {
-    width: 60px;
-    height: 60px;
-    top: 10px;
+    width: 90px;
+    height: 90px;
+    top: 15px;
     left: 40px; }
   100% {
-    width: 61.8px;
-    height: 61.8px;
-    top: 9.1px;
+    width: 92.7px;
+    height: 92.7px;
+    top: 13.65px;
     left: 38.2px; } }
 @keyframes breathe {
   0% {
-    width: 61.8px;
-    height: 61.8px;
-    top: 9.1px;
+    width: 92.7px;
+    height: 92.7px;
+    top: 13.65px;
     left: 38.2px; }
   50% {
-    width: 60px;
-    height: 60px;
-    top: 10px;
+    width: 90px;
+    height: 90px;
+    top: 15px;
     left: 40px; }
   100% {
-    width: 61.8px;
-    height: 61.8px;
-    top: 9.1px;
+    width: 92.7px;
+    height: 92.7px;
+    top: 13.65px;
     left: 38.2px; } }
 
 @-webkit-keyframes bus-breathe {
   0% {
-    font-size: 31.2px; }
+    font-size: 41.2px; }
   50% {
-    font-size: 30px; }
+    font-size: 40px; }
   100% {
-    font-size: 31.2px; } }
+    font-size: 41.2px; } }
 
 @keyframes bus-breathe {
   0% {
-    font-size: 31.2px; }
+    font-size: 41.2px; }
   50% {
-    font-size: 30px; }
+    font-size: 40px; }
   100% {
-    font-size: 31.2px; } }
+    font-size: 41.2px; } }
 
 #list {
   padding-top: 294px; }
@@ -133,6 +133,7 @@ table {
 
 .btn {
   width: 350px;
+  height: 33px;
   font-size: 16px;
   color: #fff;
   font-weight: 800;
@@ -188,14 +189,14 @@ table {
 /* 站名、進站狀態 */
 .bus-state {
   position: relative;
-  height: 80px; }
+  height: 120px; }
 
 .station {
   position: relative;
-  top: 10px;
+  top: 15px;
   left: 40px;
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background-color: #43afd6;
   z-index: 1; }
@@ -203,14 +204,14 @@ table {
     text-align: center;
     color: #fff;
     font-weight: 900;
-    line-height: 60px; }
+    line-height: 90px; }
 
 .way {
   position: absolute;
   top: 0px;
-  left: 65px;
-  height: 80px;
-  width: 10px;
+  left: 77px;
+  height: 120px;
+  width: 16px;
   background-color: #43afd6; }
 
 .arrive {
@@ -230,18 +231,19 @@ table {
 
 .sta-name {
   position: absolute;
-  top: 31px;
+  top: 50px;
   left: 150px;
-  font-weight: 900; }
+  font-weight: 900;
+  font-size: 21.6px; }
 
 .bus {
   position: absolute;
-  top: 31px;
-  right: 0; }
+  top: 50px;
+  right: 40px; }
   .bus .fa {
     -webkit-animation: bus-breathe 2s infinite;
             animation: bus-breathe 2s infinite;
-    font-size: 30px;
+    font-size: 40px;
     color: #ff6400;
     line-height: 10px; }
   .bus span {

@@ -95,11 +95,11 @@ function getGoJson(){
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
                         </li>`
-                } else if (items[i].EstimateTime < 0){ //停駛
+                } else if (items[i].EstimateTime < 0){ //末班駛離
                     str +=
                         `<li class="bus-state">
                             <div class="station stop">
-                                <div class="time">停駛</div>
+                                <div class="time">末班駛離</div>
                             </div>
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
@@ -170,11 +170,11 @@ function getBackJson() {
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
                         </li>`
-                } else if (items[i].EstimateTime < 0) { //停駛
+                } else if (items[i].EstimateTime < 0) { //末班駛離
                     str +=
                         `<li class="bus-state">
                             <div class="station stop">
-                                <div class="time">停駛</div>
+                                <div class="time">末班駛離</div>
                             </div>
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
