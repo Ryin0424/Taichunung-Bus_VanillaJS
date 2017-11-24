@@ -223,21 +223,6 @@ input.search {
     border-style: solid solid solid solid;
     border-width: 33px 15px 0px 0px; }
 
-@media (max-width: 768px) {
-  .btn {
-    width: 230px; } }
-
-@media (max-width: 554px) {
-  .btn {
-    width: 190px; }
-  .bus {
-    right: 20; } }
-
-@media (max-width: 375px) {
-  .btn {
-    width: auto;
-    overflow-x: auto; } }
-
 #go {
   background-color: #43afd6;
   margin-left: 40px;
@@ -329,6 +314,26 @@ input.search {
     line-height: 10px; }
   .bus span {
     margin-left: 10px; }
+
+@media (max-width: 768px) {
+  .btn {
+    width: 230px; }
+  #bus-way-list {
+    width: 600px; } }
+
+@media (max-width: 554px) {
+  .btn {
+    width: 190px; }
+  #bus-way-list {
+    width: 480px; }
+  .bus {
+    right: 20; } }
+
+@media (max-width: 375px) {
+  #bus-way-chose {
+    overflow-x: auto; }
+  .btn {
+    width: auto; } }
 
 html, body {
   background-color: #f1ebeb;
