@@ -46,7 +46,7 @@ table {
 /*至此結束Reset*/
 header {
   position: fixed;
-  z-index: 100;
+  z-index: 10;
   top: 0;
   width: 800px;
   background-color: #f1ebeb; }
@@ -96,6 +96,152 @@ input.search {
       font-size: 32px; }
     header input.search {
       width: 95%; } }
+
+#toolBox {
+  position: fixed;
+  z-index: 15;
+  font-family: monospace, Microsoft JhengHei; }
+  #toolBox .fa {
+    font-size: 30px;
+    padding-right: 10px; }
+  #toolBox span {
+    font-size: 24px;
+    font-weight: 800; }
+
+@media (min-width: 992px) {
+  #toolBox {
+    top: 10px;
+    right: 10px;
+    height: 180px;
+    width: 230px; }
+  .fb-btn {
+    color: #48687e; }
+    .fb-btn .fa {
+      position: absolute;
+      top: 15px;
+      right: 20px; }
+    .fb-btn span {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      opacity: 0; }
+    .fb-btn:hover, .fb-btn:focus, .fb-btn:active {
+      color: #222; }
+      .fb-btn:hover .fa, .fb-btn:focus .fa, .fb-btn:active .fa {
+        right: 175px;
+        color: #3b5998;
+        -webkit-transform: rotate(-360deg);
+            -ms-transform: rotate(-360deg);
+                transform: rotate(-360deg);
+        -webkit-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out; }
+      .fb-btn:hover span, .fb-btn:focus span, .fb-btn:active span {
+        opacity: 1;
+        -webkit-transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1);
+        -o-transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1);
+        transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1); }
+  .return-btn {
+    color: #48687e; }
+    .return-btn .fa {
+      position: absolute;
+      top: 55px;
+      right: 20px; }
+    .return-btn span {
+      position: absolute;
+      right: 20px;
+      top: 60px;
+      opacity: 0; }
+    .return-btn:hover, .return-btn:focus, .return-btn:active {
+      color: #222; }
+      .return-btn:hover .fa, .return-btn:focus .fa, .return-btn:active .fa {
+        right: 170px;
+        color: #0ba32c;
+        -webkit-transform: rotate(-360deg);
+            -ms-transform: rotate(-360deg);
+                transform: rotate(-360deg);
+        -webkit-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out; }
+      .return-btn:hover span, .return-btn:focus span, .return-btn:active span {
+        opacity: 1;
+        -webkit-transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1);
+        -o-transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1);
+        transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1); }
+  .Zh-btn {
+    color: #48687e; }
+    .Zh-btn .fa {
+      position: absolute;
+      top: 95px;
+      right: 20px; }
+    .Zh-btn span {
+      position: absolute;
+      right: 20px;
+      top: 100px;
+      opacity: 0; }
+    .Zh-btn:hover, .Zh-btn:focus, .Zh-btn:active {
+      color: #222; }
+      .Zh-btn:hover .fa, .Zh-btn:focus .fa, .Zh-btn:active .fa {
+        right: 160px;
+        color: #43afd6;
+        -webkit-transform: rotate(-360deg);
+            -ms-transform: rotate(-360deg);
+                transform: rotate(-360deg);
+        -webkit-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out; }
+      .Zh-btn:hover span, .Zh-btn:focus span, .Zh-btn:active span {
+        opacity: 1;
+        -webkit-transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1);
+        -o-transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1);
+        transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1); }
+  .En-btn {
+    color: #48687e; }
+    .En-btn .fa {
+      position: absolute;
+      top: 135px;
+      right: 20px; }
+    .En-btn span {
+      position: absolute;
+      right: 20px;
+      top: 140px;
+      opacity: 0; }
+    .En-btn:hover, .En-btn:focus, .En-btn:active {
+      color: #222; }
+      .En-btn:hover .fa, .En-btn:focus .fa, .En-btn:active .fa {
+        right: 172px;
+        color: #43afd6;
+        -webkit-transform: rotate(-360deg);
+            -ms-transform: rotate(-360deg);
+                transform: rotate(-360deg);
+        -webkit-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out; }
+      .En-btn:hover span, .En-btn:focus span, .En-btn:active span {
+        opacity: 1;
+        -webkit-transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1);
+        -o-transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1);
+        transition: opacity 1.2s cubic-bezier(0.85, 0, 1, 1); } }
+
+@media (max-width: 991px) {
+  #toolBox {
+    bottom: 0px;
+    height: 40px;
+    width: 100vw;
+    background-color: #f1ebeb;
+    -webkit-box-shadow: 0 0 15px #222;
+            box-shadow: 0 0 15px #222; }
+    #toolBox .container {
+      width: 370px;
+      height: 50px; }
+  .fb-btn, .return-btn, .Zh-btn, .En-btn {
+    padding: 5px 20px;
+    float: left;
+    margin-left: 8px;
+    margin-right: 8px;
+    color: #48687e; }
+    .fb-btn span, .return-btn span, .Zh-btn span, .En-btn span {
+      display: none; } }
 
 @-webkit-keyframes breathe {
   0% {
@@ -349,7 +495,7 @@ html, body {
 
 @media (max-width: 554px) {
   .container {
-    width: 450px; } }
+    width: 480px; } }
 
 @media (max-width: 375px) {
   .container {

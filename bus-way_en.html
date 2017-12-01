@@ -1,38 +1,46 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en">
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>台中市公車動態資訊</title>
+    <title>Taichung Bus Dynamic Search</title>
     <link rel="stylesheet" href="css/font-awesome.css"/>
     <link rel="stylesheet" href="css/all.css"/>
     <link rel="shortcut icon" href="img/bus-icon.ico"/>
   </head>
   <body>
     <div id="toolBox">
-      <div class="container"><a href="#" title="Facebook 登入以使用最愛路線功能" class="fb-btn">
-          <div class="fa fa-facebook-official"></div><span>Facebook登入</span></a><a href="index.html" title="回到路線查詢頁面" class="return-btn">
-          <div class="fa fa-undo"></div><span>返回查詢頁面</span></a>
+      <div class="container"><a href="#" title="Facebook login to use My Favorite" class="fb-btn">
+          <div class="fa fa-facebook-official"></div><span style="font-size: 20px">Facebook Login</span></a><a href="index_en.html" title="Back to Search" class="return-btn">
+          <div class="fa fa-undo"></div><span style="font-size: 20px">Back to Search</span></a>
       </div>
     </div>
     <div class="container">
       <header id="header">
-        <h1>台中市公車動態資訊
-          <p id="now-position">您現在的位置</p>
+        <h1>Taichung Bus Dynamic Search
+          <p id="now-position">　</p>
         </h1>
-        <h2>請選擇行車方向</h2>
+        <h2>Please chose bus way</h2>
         <div id="bus-way-chose">
-          <button id="go" type="button" class="btn"> 往</button>
-          <button id="back" type="button" class="btn"> 往</button>
+          <button id="go" type="button" class="btn"> Go</button>
+          <button id="back" type="button" class="btn"> Go </button>
         </div>
       </header>
       <ul id="bus-way-list">
       </ul>
     </div>
   </body>
-  <script src="js/way.js"></script>
+  <script src="js/way_en.js"></script>
   <style>
+    .btn{
+        padding: 5px;
+        height: auto;
+        border-radius: 15px;
+    }
+    .btn:before,.btn:after{
+        display: none;
+    }
     @media (min-width: 99px){
         .return-btn .fa{
             top: 75px;

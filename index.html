@@ -5,16 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>台中市公車動態資訊</title>
+    <link rel="stylesheet" href="css/font-awesome.css"/>
     <link rel="stylesheet" href="css/all.css"/>
     <link rel="shortcut icon" href="img/bus-icon.ico"/>
   </head>
   <body>
+    <div id="toolBox">
+      <div class="container"><a id="Fblogin" href="#" title="Facebook 登入以使用最愛路線功能" class="fb-btn">
+          <div class="fa fa-facebook-official"></div><span>Facebook登入</span></a><a href="index.html" title="回到路線查詢頁面" class="return-btn">
+          <div class="fa fa-undo"></div><span>返回查詢頁面</span></a><a href="index.html" title="切換繁中介面" class="Zh-btn">
+          <div style="font-size:28px;font-weight:900;font-family:Microsoft JhengHei;" class="fa">繁</div><span>繁體中文模式</span></a><a href="index_en.html" title="Trans to English mode" class="En-btn">
+          <div style="margin-right:4px;font-weight:900;font-family:monospace;" class="fa">E</div><span>English Mode</span></a></div>
+    </div>
     <div class="container">
       <header id="header">
         <h1>台中市公車動態資訊
-          <p id="now-position">您現在的位置</p>
+          <p id="now-position">　　 </p>
         </h1>
-        <h2>請選擇公車路線</h2>
+        <h2>請輸入路線編號</h2>
         <input type="text" placeholder="請輸入欲查詢之公車路線" class="search"/>
       </header>
       <ul id="list">
@@ -22,4 +30,17 @@
     </div>
   </body>
   <script src="js/app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyBuAouCx581NvPoRlFlWz5C33xl2tN000c",
+    authDomain: "bus-app-f7e65.firebaseapp.com",
+    databaseURL: "https://bus-app-f7e65.firebaseio.com",
+    projectId: "bus-app-f7e65",
+    storageBucket: "bus-app-f7e65.appspot.com",
+    messagingSenderId: "1024734994820"
+    };
+    firebase.initializeApp(config);
+  </script>
 </html>
