@@ -42,5 +42,18 @@
     messagingSenderId: "1024734994820"
     };
     firebase.initializeApp(config);
+    
+    // 網頁預設載入 initApp
+    window.onload = function () {
+        initApp();
+    };
   </script>
+  <script src="js/login.js"></script>
+  <style>
+    @media (min-width: 992px){
+        .return-btn:hover .fa, .return-btn:focus .fa, .return-btn:active .fa {
+            right: 162px;
+        }
+    }
+  </style>
 </html>

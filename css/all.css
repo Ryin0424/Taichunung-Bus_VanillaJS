@@ -245,53 +245,81 @@ input.search {
 
 @-webkit-keyframes breathe {
   0% {
-    width: 92.7px;
-    height: 92.7px;
-    top: 13.65px;
-    left: 38.2px; }
+    width: 93.6px;
+    height: 93.6px;
+    top: 13.2px;
+    left: 37.6px; }
+  25% {
+    width: 91.8px;
+    height: 91.8px;
+    top: 14.1px;
+    left: 38.8px; }
   50% {
     width: 90px;
     height: 90px;
     top: 15px;
     left: 40px; }
+  75% {
+    width: 91.8px;
+    height: 91.8px;
+    top: 14.1px;
+    left: 38.8px; }
   100% {
-    width: 92.7px;
-    height: 92.7px;
-    top: 13.65px;
-    left: 38.2px; } }
+    width: 93.6px;
+    height: 93.6px;
+    top: 13.2px;
+    left: 37.6px; } }
 
 @keyframes breathe {
   0% {
-    width: 92.7px;
-    height: 92.7px;
-    top: 13.65px;
-    left: 38.2px; }
+    width: 93.6px;
+    height: 93.6px;
+    top: 13.2px;
+    left: 37.6px; }
+  25% {
+    width: 91.8px;
+    height: 91.8px;
+    top: 14.1px;
+    left: 38.8px; }
   50% {
     width: 90px;
     height: 90px;
     top: 15px;
     left: 40px; }
+  75% {
+    width: 91.8px;
+    height: 91.8px;
+    top: 14.1px;
+    left: 38.8px; }
   100% {
-    width: 92.7px;
-    height: 92.7px;
-    top: 13.65px;
-    left: 38.2px; } }
+    width: 93.6px;
+    height: 93.6px;
+    top: 13.2px;
+    left: 37.6px; } }
 
 @-webkit-keyframes bus-breathe {
   0% {
-    font-size: 41.2px; }
+    font-size: 41.6px; }
+  25% {
+    font-size: 40.8px; }
   50% {
     font-size: 40px; }
+  75% {
+    font-size: 40.8px; }
   100% {
-    font-size: 41.2px; } }
+    font-size: 41.6px; } }
 
 @keyframes bus-breathe {
   0% {
-    font-size: 41.2px; }
+    font-size: 41.6px; }
+  25% {
+    font-size: 40.8px; }
   50% {
     font-size: 40px; }
+  75% {
+    font-size: 40.8px; }
   100% {
-    font-size: 41.2px; } }
+    font-size: 41.6px; } }
 
 #list {
   padding-top: 294px; }
@@ -301,7 +329,7 @@ input.search {
   background-color: #fff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 10px 50px;
+  padding: 0 50px 10px 50px;
   margin-bottom: 20px; }
   .card:hover {
     background-color: #b3ffe2; }
@@ -309,19 +337,30 @@ input.search {
     text-decoration: none; }
   .card p {
     font-weight: 900;
-    margin: 5px 0 5px 50px; }
+    margin: 0px 0 10px 65px; }
+
+.fa-thumb-tack {
+  font-size: 30px;
+  position: relative;
+  top: 45px;
+  color: #ff000073;
+  cursor: pointer; }
+  .fa-thumb-tack:hover {
+    color: #ff0000bd; }
 
 @media (max-width: 768px) {
   .card {
-    padding: 20px; }
+    padding: 0 20px 10px 20px; }
     .card p {
-      margin: 5px 0 5px 30px; } }
+      margin: 0px 0 10px 30px; } }
 
 @media (max-width: 375px) {
   .card {
-    padding: 10px; }
+    padding: 0 15px 10px 15px; }
     .card p {
-      margin: 5px 0 5px 30px; } }
+      margin: px 0 10px 30px; }
+    .card .fa-thumb-tack {
+      top: 50px; } }
 
 .bus-way {
   color: #777;
@@ -377,11 +416,11 @@ input.search {
     border-color: transparent #43afd6 transparent transparent; }
   #go::after {
     border-color: #43afd6 transparent transparent transparent; }
-  #go:hover {
+  #go:hover, #go:focus {
     background-color: #2b9cc5; }
-    #go:hover::before {
+    #go:hover::before, #go:focus::before {
       border-color: transparent #2b9cc5 transparent transparent; }
-    #go:hover::after {
+    #go:hover::after, #go:focus::after {
       border-color: #2b9cc5 transparent transparent transparent; }
 
 #back {
@@ -391,11 +430,11 @@ input.search {
     border-color: transparent #0ba32c transparent transparent; }
   #back::after {
     border-color: #0ba32c transparent transparent transparent; }
-  #back:hover {
+  #back:hover, #back:focus {
     background-color: #087d22; }
-    #back:hover::before {
+    #back:hover::before, #back:focus::before {
       border-color: transparent #087d22 transparent transparent; }
-    #back:hover::after {
+    #back:hover::after, #back:focus::after {
       border-color: #087d22 transparent transparent transparent; }
 
 /* 站名、進站狀態 */

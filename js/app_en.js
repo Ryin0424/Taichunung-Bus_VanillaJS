@@ -12,7 +12,7 @@ xhr.onload = function () {
         for (var i = 0; i < items.length; i++){
             str += 
             `<li class="card" title="Detailed">
-                <a href="bus-way_en.html?En=${items[i].SubRoutes[0].SubRouteName.En}" class="busLink">
+                <a href="bus-way_en.html?Zh_tw=${items[i].SubRoutes[0].SubRouteName.Zh_tw}&En=${items[i].SubRoutes[0].SubRouteName.En}" class="busLink">
                     <p class="bus-way">${ items[i].DepartureStopNameEn} - ${items[i].DestinationStopNameEn}</p>
                     <p class="bus-num">${ items[i].SubRoutes[0].SubRouteName.En}</p>
                 </a>
@@ -38,14 +38,14 @@ function searchBus() {
             // .toUpperCase() 強制轉大寫
         })
     }
-    console.log(filterItems(searchVu));
+    // console.log(filterItems(searchVu));
 
     function updatedList(items) { // 重新渲染路線結果
         var str = '';
         for (var i = 0; i < items.length; i++) {
             str +=
             `<li class="card" title="Detailed">
-                <a href="bus-way_en.html?En=${items[i].SubRoutes[0].SubRouteName.En}" class="busLink">
+                <a href="bus-way_en.html?Zh_tw=${items[i].SubRoutes[0].SubRouteName.Zh_tw}&En=${items[i].SubRoutes[0].SubRouteName.En}" class="busLink">
                     <p class="bus-way">${ items[i].DepartureStopNameEn}-${items[i].DestinationStopNameEn}</p>
                     <p class="bus-num">${ items[i].SubRoutes[0].SubRouteName.En}</p>
                 </a>

@@ -36,6 +36,29 @@ var address = document.getElementById('now-position'); //為了渲染成路線�
 address.innerHTML = roadLine + ` 號公車路線`;
 var updata; //記錄要渲染的路線資料
 
+// 取得當前搜尋網址
+toolBox = document.getElementById('toolBox');
+toolBox.innerHTML =
+    `<div class="container">
+        <a href="#" title="Facebook 登入以使用最愛路線功能" class="fb-btn">
+            <div class="fa fa-facebook-official"></div>
+            <span>Facebook登入</span>
+        </a>
+        <a href="index.html" title="回到路線查詢頁面" class="return-btn">
+            <div class="fa fa-undo"></div>
+            <span>返回查詢頁面</span>
+        </a>
+        <a href="bus-way.html${ location.search}" title="切換繁中介面" class="Zh-btn">
+            <div style="font-size:28px;font-weight:900;font-family:Microsoft JhengHei;" class="fa">繁</div>
+            <span>繁體中文模式</span>
+        </a>
+        <a href="bus-way_en.html${ location.search}" title="Trans to English mode" class="En-btn">
+            <div style="margin-right:4px;font-weight:900;font-family:monospace;" class="fa">E</div>
+            <span>English Mode</span>
+         </a>
+    </div>`
+
+
 /* 判斷去程回程 */
 var check = 'go';
 
