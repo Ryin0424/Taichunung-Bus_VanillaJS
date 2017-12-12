@@ -1,5 +1,6 @@
 var data = ''; // 儲存 xhr 拉回來的 json 資料
-var list = document.getElementById('list');
+const list = document.getElementById('list');
+const favorite = document.getElementById('favorite');
 let OriginalList = ""; // 儲存第一次 Request 時拉回來跑完 for 迴圈的表單 (原始表單)
 
 const xhr = new XMLHttpRequest();

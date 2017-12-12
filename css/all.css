@@ -321,8 +321,13 @@ input.search {
   100% {
     font-size: 41.6px; } }
 
-#list {
+#favorite {
   padding-top: 294px; }
+  #favorite .fa-thumb-tack {
+    color: #c00101;
+    -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+            transform: rotate(0); }
 
 .card {
   width: 100%;
@@ -344,9 +349,20 @@ input.search {
   position: relative;
   top: 45px;
   color: #ff000073;
+  -webkit-transform: rotate(-15deg);
+      -ms-transform: rotate(-15deg);
+          transform: rotate(-15deg);
   cursor: pointer; }
   .fa-thumb-tack:hover {
-    color: #ff0000bd; }
+    color: #ff0000bd;
+    -webkit-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+            transform: rotate(-10deg); }
+  .fa-thumb-tack:active {
+    color: #ff0000bd;
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg); }
 
 @media (max-width: 768px) {
   .card {
