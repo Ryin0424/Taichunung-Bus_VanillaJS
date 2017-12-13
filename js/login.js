@@ -77,41 +77,39 @@ function initApp() {
             /* 登入之後渲染路線(Favorite、list) */
             function showUserList() {
                 function showFavorite() {
-                    userData.child("favorite").on('value', function (snapshot) {
-                        var data = snapshot.val();
+                    userData.child("favorite").orderByChild('route_ZH').on('value', function (snapshot) {
+                        // var data = snapshot.val();
                         // console.log(data);
                         var str= "";
-                        for (i in data) {
-                            // console.log(i);
-                            str+=
+                        snapshot.forEach(function (i) {
+                            var data = i.val();
+                            str +=
                             `<li class="card" title="路線詳情">
-                                <i class="fa fa-thumb-tack" title="加到最愛路線" data-key="${i}" data-route_zh="${data[i].route_ZH}" data-route_en="${data[i].route_EN}" data-way_zh="${data[i].way_ZH}" data-way_en_first="${data[i].way_EN_First}" data-way_en_end="${data[i].way_EN_End}"></i>
-                                <a href="bus-way.html?Zh_tw=${data[i].route_ZH}&En=${data[i].route_EN}" class="busLink">
-                                    <p class="bus-way">${data[i].way_ZH}</p>
-                                    <p class="bus-num">${data[i].route_ZH}</p>
+                                <i class="fa fa-thumb-tack" title="取消最愛路線" data-key="${i.key}" data-route_zh="${data.route_ZH}" data-route_en="${data.route_EN}" data-way_zh="${data.way_ZH}" data-way_en_first="${data.way_EN_First}" data-way_en_end="${data.way_EN_End}"></i>
+                                <a href="bus-way.html?Zh_tw=${data.route_ZH}&En=${data.route_EN}" class="busLink">
+                                    <p class="bus-way">${data.way_ZH}</p>
+                                    <p class="bus-num">${data.route_ZH}</p>
                                  </a>
                             </li>`
-                        }
+                        })
                         favorite.innerHTML = str;
                     })
                 }
                 function showList() {
-                    userData.child("list").on('value',function(snapshot){
-                        var data = snapshot.val();
-                        // console.log(data);
+                    userData.child("list").orderByChild('route_ZH').on('value',function(snapshot){
                         var str ='';
-                        for (i in data){
-                            str+= 
-                            `<li class="card" title="路線詳情">
-                                <i class="fa fa-thumb-tack" title="加到最愛路線" data-key="${i}" data-route_zh="${data[i].route_ZH}" data-route_en="${data[i].route_EN}" data-way_zh="${data[i].way_ZH}" data-way_en_first="${data[i].way_EN_First}" data-way_en_end="${data[i].way_EN_End}"></i>
-                                <a href="bus-way.html?Zh_tw=${data[i].route_ZH}&En=${data[i].route_EN}" class="busLink">
-                                    <p class="bus-way">${data[i].way_ZH}</p>
-                                    <p class="bus-num">${data[i].route_ZH}</p>
+                        snapshot.forEach(function (i) {
+                            var data = i.val();
+                            str +=
+                                `<li class="card" title="路線詳情">
+                                <i class="fa fa-thumb-tack" title="加到最愛路線" data-key="${i.key}" data-route_zh="${data.route_ZH}" data-route_en="${data.route_EN}" data-way_zh="${data.way_ZH}" data-way_en_first="${data.way_EN_First}" data-way_en_end="${data.way_EN_End}"></i>
+                                <a href="bus-way.html?Zh_tw=${data.route_ZH}&En=${data.route_EN}" class="busLink">
+                                    <p class="bus-way">${data.way_ZH}</p>
+                                    <p class="bus-num">${data.route_ZH}</p>
                                  </a>
                             </li>`
-                        }
+                        })
                         list.innerHTML = str;
-                        // console.log(str);
                     })  
                 }
                 showFavorite();
@@ -130,13 +128,6 @@ function initApp() {
                         var way_en_end = e.target.dataset.way_en_end;
                         var way_zh = e.target.dataset.way_zh;
 
-                        // console.log(key);
-                        // console.log(route_zh);
-                        // console.log(route_en);
-                        // console.log(way_en_first);
-                        // console.log(way_en_end);
-                        // console.log(way_zh);
-
                         userData.child("favorite").push({ // 推送資料到 Firebase database
                             "route_ZH": route_zh,
                             "route_EN": route_en,
@@ -144,10 +135,30 @@ function initApp() {
                             "way_EN_First": way_en_first,
                             "way_EN_End": way_en_end
                         })
-                        console.log(`成功加入 #favorite 資料！`);
-
+                        console.log(`List：成功加入 #favorite 資料！`);
                         userData.child("list").child(key).remove();
-                        console.log(`成功刪除 #list 資料！`);
+                        console.log(`List：成功刪除 #list 資料！`);
+                    }
+                })
+                favorite.addEventListener('click', function (e) {
+                    if (e.target.nodeName = "I") {
+                        var key = e.target.dataset.key; // dataset 讀取 data 中的項目，這邊讀取的我們設定的 data-key
+                        var route_zh = e.target.dataset.route_zh;
+                        var route_en = e.target.dataset.route_en;
+                        var way_en_first = e.target.dataset.way_en_first;
+                        var way_en_end = e.target.dataset.way_en_end;
+                        var way_zh = e.target.dataset.way_zh;
+
+                        userData.child("list").push({ // 將資料加回到 #list
+                            "route_ZH": route_zh,
+                            "route_EN": route_en,
+                            "way_ZH": way_zh,
+                            "way_EN_First": way_en_first,
+                            "way_EN_End": way_en_end
+                        })
+                        console.log(`Favorite：成功加入 #list 資料！`);
+                        userData.child("favorite").child(key).remove(); // 將 #favorite 中的資料刪掉
+                        console.log(`Favorite：成功刪除 #favorite 資料！`);
                     }
                 })
             }
