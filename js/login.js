@@ -38,9 +38,9 @@ function initApp() {
             let name = user.displayName; // 記錄使用者信名資料
             var email = user.email;
             var isAnonymous = user.isAnonymous;
-            // var uid = user.uid;
-            uid = user.uid;
-            var providerData = user.providerData;
+            var uid = user.uid;
+            // uid = user.uid; // 將 uid 拉到全域
+            // var providerData = user.providerData;
 
             var userData = firebase.database().ref(uid); // 指向(建立)一個 uid變數 為名的 object
             var userArray = []; // 建立一個空陣列以儲存 所有 user 的 uid
@@ -77,7 +77,7 @@ function initApp() {
             <span>Facebook登出</span>`;
 
             /* 登入之後渲染路線(Favorite、list) */
-            function showUserList() {
+            // function showUserList() {
                 userData.child("favorite").orderByChild('route_ZH').on('value', function (snapshot) {
                     // var data = snapshot.val();
                     // console.log(data);
@@ -155,8 +155,8 @@ function initApp() {
                         updatedList(filterItems(searchVu));
                     }
                 })
-            }
-            showUserList();
+            // }
+            // showUserList();
 
             /* 增加、刪除最愛路線 */
             // function toggleFavorite() {
@@ -215,6 +215,13 @@ function initApp() {
             list.innerHTML = OriginalList;
             favorite.innerHTML = '';
             
+            if (uid == undefined){
+                list.addEventListener('click', function (e) {
+                        if (e.target.nodeName = "I") {
+                            console.log(`請先登入以使用"加入最愛"功能唷 =D`);
+                        }
+                })
+            }
             
 
             search.addEventListener('input', searchBusLocal, false); //input屬性 = 使用者每次操作都跑一次 function
