@@ -1,5 +1,6 @@
 var goData = '';
 var backData = '';
+var notifyStop = []
 
 var goBtn = document.getElementById('go');
 var backBtn = document.getElementById('back');
@@ -7,6 +8,13 @@ var busList = document.getElementById('bus-way-list');
 
 goBtn.addEventListener('click', getGoJson, false);
 backBtn.addEventListener('click', getBackJson, false);
+
+goBtn.addEventListener('click', clearNotify, false); // 更換去回列表時，刪除已排程的通知
+backBtn.addEventListener('click', clearNotify, false)
+
+function clearNotify(){
+    notifyStop = []
+}
 
 var helper = {
     getParameterByName: function (name, url) {
@@ -117,6 +125,7 @@ function getGoJson(){
                             </div>
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 } else if (items[i].EstimateTime < 0){ //末班駛離
                     str +=
@@ -126,6 +135,7 @@ function getGoJson(){
                             </div>
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 } else if (items[i].EstimateTime == 0) { //進站中
                     str +=
@@ -136,6 +146,7 @@ function getGoJson(){
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
                             <div class="bus"> <i class="fa fa-bus"></i><span>${items[i].PlateNumb}</span></div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 } else if (items[i].EstimateTime == 60) { //剩餘一分
                     str +=
@@ -146,6 +157,7 @@ function getGoJson(){
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
                             <div class="bus"> <i class="fa fa-bus"></i><span>${items[i].PlateNumb}</span></div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 } else if (items[i].EstimateTime) { //顯示多久到站
                     str +=
@@ -155,13 +167,58 @@ function getGoJson(){
                             </div>
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 }
                 busList.innerHTML = str;
             }
-            // console.log(1);
+
+            // 該站要發出通知鈴聲
+            for (var i = 0; i < len; i++){
+                if(notifyStop.indexOf(items[i].StopName.Zh_tw)!==-1){
+
+                    if(items[i].EstimateTime<=300){ // 剩餘5分鐘時發出通知
+
+                        alert(`${items[i].StopName.Zh_tw}即將到站`)
+                        // if(Notification.permission==="default"){
+                        //     new Notification(`${items[i].StopName.Zh_tw}即將到站`)
+                        // }
+                        // else{
+                        //     alert("請先開啓通知才能使用通知功能喔")
+                        // }
+                        notifyStop.splice(notifyStop.indexOf(items[i].StopName.Zh_tw), 1) // 通知後將該站移出notifyStop陣列(不再通知)
+                    }
+                    else{ // 時間尚超過5分鐘
+                        var bell = $(`.sta-name:contains("${items[i].StopName.Zh_tw}")`).parent().find('.fa-bell')
+                        bell.show().addClass('hover').addClass('active') // 維持小鈴鐺狀態
+                    }
+                }
+            }
         }
         update(goData);
+
+        // 提醒圖示
+        $('.bus-state').on('mouseover', function(event){ //當滑鼠滑過一個站時就顯示鈴鐺圖示
+            $(this).find(".fa-bell:not(.active)").toggleClass('hover')
+        })
+
+        $('.bus-state').on('mouseout', function(event){
+            $(this).find(".fa-bell:not(.active)").toggleClass('hover')
+        })
+
+        // 排定通知
+        $('.fa-bell').on('click', function(){
+            const stopName = $(this).parent().find('.sta-name').text()
+
+            $(this).toggleClass('active') // 按下去後改變小鈴鐺顏色
+
+            if(notifyStop.indexOf(stopName)===-1){ // 該站尚未加入通知序列
+                notifyStop.push(stopName) //加入通知序列
+            }
+            else{ //該站已經在通知序列裡面了
+                notifyStop.splice(stopName, 1) //移出通知序列
+            }
+        })
     }
     // setInterval(getGoJson, 30000);
 }
@@ -192,6 +249,7 @@ function getBackJson() {
                             </div>
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 } else if (items[i].EstimateTime < 0) { //末班駛離
                     str +=
@@ -201,6 +259,7 @@ function getBackJson() {
                             </div>
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 } else if (items[i].EstimateTime == 0) { //進站中
                     str +=
@@ -211,6 +270,7 @@ function getBackJson() {
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
                             <div class="bus"> <i class="fa fa-bus"></i><span>${items[i].PlateNumb}</span></div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 } else if (items[i].EstimateTime == 60) { //剩餘一分
                     str +=
@@ -221,6 +281,7 @@ function getBackJson() {
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
                             <div class="bus"> <i class="fa fa-bus"></i><span>${items[i].PlateNumb}</span></div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 } else if (items[i].EstimateTime) { //顯示多久到站
                     str +=
@@ -230,12 +291,58 @@ function getBackJson() {
                             </div>
                             <div class="way"></div>
                             <div class="sta-name">${items[i].StopName.Zh_tw}</div>
+                            <div class="fa fa-bell" title="提醒通知"></div>
                         </li>`
                 }
                 busList.innerHTML = str;
             }
+
+            // 該站要發出通知鈴聲
+            for (var i = 0; i < len; i++){
+                if(notifyStop.indexOf(items[i].StopName.Zh_tw)!==-1){
+
+                    if(items[i].EstimateTime<=300){ // 剩餘5分鐘時發出通知
+
+                        alert(`${items[i].StopName.Zh_tw}即將到站`)
+                        // if(Notification.permission==="granted"){
+                        //     new Notification(`${items[i].StopName.Zh_tw}即將到站`)
+                        // }
+                        // else{
+                        //     alert("請先開啓通知才能使用通知功能喔")
+                        // }
+                        notifyStop.splice(notifyStop.indexOf(items[i].StopName.Zh_tw), 1) // 通知後將該站移出notifyStop陣列(不再通知)
+                    }
+                    else{ // 時間尚超過5分鐘
+                        var bell = $(`.sta-name:contains("${items[i].StopName.Zh_tw}")`).parent().find('.fa-bell')
+                        bell.show().addClass('hover').addClass('active') // 維持小鈴鐺狀態
+                    }
+                }
+            }
         }
         update(backData);
+
+        //提醒圖示
+        $('.bus-state').on('mouseover', function(){ // 當滑鼠滑過一個站時就顯示鈴鐺圖示
+            $(this).find(".fa-bell:not(.active)").toggleClass('hover')
+        })
+
+        $('.bus-state').on('mouseout', function(){
+            $(this).find(".fa-bell:not(.active)").toggleClass('hover')
+        })
+
+        // 排定通知
+        $('.fa-bell').on('click', function(){
+            const stopName = $(this).parent().find('.sta-name').text()
+
+            $(this).toggleClass('active') // 按下去後改變小鈴鐺顏色
+
+            if(notifyStop.indexOf(stopName)===-1){ // 該站尚未加入通知序列
+                notifyStop.push(stopName) //加入通知序列
+            }
+            else{ //該站已經在通知序列裡面了
+                notifyStop.splice(stopName, 1) //移出通知序列
+            }
+        })
     }
     // setInterval(getBackJson, 30000);
 }
