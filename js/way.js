@@ -1,6 +1,7 @@
 var goData = '';
 var backData = '';
 var notifyStop = []
+var notifyStopNow = []
 
 var goBtn = document.getElementById('go');
 var backBtn = document.getElementById('back');
@@ -179,13 +180,12 @@ function getGoJson(){
 
                     if(items[i].EstimateTime<=300){ // 剩餘5分鐘時發出通知
 
-                        alert(`${items[i].StopName.Zh_tw}即將到站`)
-                        // if(Notification.permission==="default"){
-                        //     new Notification(`${items[i].StopName.Zh_tw}即將到站`)
-                        // }
-                        // else{
-                        //     alert("請先開啓通知才能使用通知功能喔")
-                        // }
+                        if(Notification.permission==="granted"){
+                            notifyStopNow.push(items[i].StopName.Zh_tw)
+                        }
+                        else{
+                            alert("請先開啓通知才能使用提醒功能喔")
+                        }
                         notifyStop.splice(notifyStop.indexOf(items[i].StopName.Zh_tw), 1) // 通知後將該站移出notifyStop陣列(不再通知)
                     }
                     else{ // 時間尚超過5分鐘
@@ -193,6 +193,11 @@ function getGoJson(){
                         bell.show().addClass('hover').addClass('active') // 維持小鈴鐺狀態
                     }
                 }
+            }
+            // 發出即將到站通知
+            if(notifyStopNow.length !== 0){
+                new Notification(`${notifyStopNow}即將到站`)
+                notifyStopNow = []
             }
         }
         update(goData);
@@ -208,16 +213,24 @@ function getGoJson(){
 
         // 排定通知
         $('.fa-bell').on('click', function(){
+            const bell = $(this)
             const stopName = $(this).parent().find('.sta-name').text()
+            
+            Notification.requestPermission().then(function(result){
+                if(result==="denied" || result==="default"){
+                    alert("請先開啓通知才能使用提醒功能哦")
+                }
+                else{ // 開啓通知功能
+                    bell.addClass('hover').toggleClass('active') // 按下去後改變小鈴鐺顏色
 
-            $(this).toggleClass('active') // 按下去後改變小鈴鐺顏色
-
-            if(notifyStop.indexOf(stopName)===-1){ // 該站尚未加入通知序列
-                notifyStop.push(stopName) //加入通知序列
-            }
-            else{ //該站已經在通知序列裡面了
-                notifyStop.splice(stopName, 1) //移出通知序列
-            }
+                    if(notifyStop.indexOf(stopName)===-1){ // 該站尚未加入通知序列
+                        notifyStop.push(stopName) //加入通知序列
+                    }
+                    else{ //該站已經在通知序列裡面了
+                        notifyStop.splice(stopName, 1) //移出通知序列
+                    }
+                }
+            })
         })
     }
     // setInterval(getGoJson, 30000);
@@ -303,13 +316,12 @@ function getBackJson() {
 
                     if(items[i].EstimateTime<=300){ // 剩餘5分鐘時發出通知
 
-                        alert(`${items[i].StopName.Zh_tw}即將到站`)
-                        // if(Notification.permission==="granted"){
-                        //     new Notification(`${items[i].StopName.Zh_tw}即將到站`)
-                        // }
-                        // else{
-                        //     alert("請先開啓通知才能使用通知功能喔")
-                        // }
+                        if(Notification.permission==="granted"){
+                            notifyStopNow.push(items[i].StopName.Zh_tw)
+                        }
+                        else{
+                            alert("請先開啓通知才能使用提醒功能哦")
+                        }
                         notifyStop.splice(notifyStop.indexOf(items[i].StopName.Zh_tw), 1) // 通知後將該站移出notifyStop陣列(不再通知)
                     }
                     else{ // 時間尚超過5分鐘
@@ -317,6 +329,11 @@ function getBackJson() {
                         bell.show().addClass('hover').addClass('active') // 維持小鈴鐺狀態
                     }
                 }
+            }
+            // 發出即將到站通知
+            if(notifyStopNow.length !== 0){
+                new Notification(`${notifyStopNow}即將到站`)
+                notifyStopNow = []
             }
         }
         update(backData);
@@ -332,16 +349,24 @@ function getBackJson() {
 
         // 排定通知
         $('.fa-bell').on('click', function(){
+            const bell = $(this)
             const stopName = $(this).parent().find('.sta-name').text()
+            
+            Notification.requestPermission().then(function(result){
+                if(result==="denied" || result=="default"){
+                    alert("請先開啓通知才能使用提醒功能哦")
+                }
+                else{ // 開啓通知功能
+                    bell.addClass('hover').toggleClass('active') // 按下去後改變小鈴鐺顏色
 
-            $(this).toggleClass('active') // 按下去後改變小鈴鐺顏色
-
-            if(notifyStop.indexOf(stopName)===-1){ // 該站尚未加入通知序列
-                notifyStop.push(stopName) //加入通知序列
-            }
-            else{ //該站已經在通知序列裡面了
-                notifyStop.splice(stopName, 1) //移出通知序列
-            }
+                    if(notifyStop.indexOf(stopName)===-1){ // 該站尚未加入通知序列
+                        notifyStop.push(stopName) //加入通知序列
+                    }
+                    else{ //該站已經在通知序列裡面了
+                        notifyStop.splice(stopName, 1) //移出通知序列
+                    }
+                }
+            })
         })
     }
     // setInterval(getBackJson, 30000);
