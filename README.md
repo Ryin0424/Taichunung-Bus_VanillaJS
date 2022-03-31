@@ -9,7 +9,7 @@
   - 原生 JS
   - xmlRequest
   - Firebase RealTime Database
-  - ~~Firebase Facebook auth loin API~~
+  - ~~Firebase Facebook auth login API~~
     - 太久沒使用，FB develop API 被取消啦 QQ
   - 手刻 SCSS layout
   - CSS animation
