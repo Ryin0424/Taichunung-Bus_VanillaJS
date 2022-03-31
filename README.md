@@ -3,12 +3,30 @@
 台中公車動態資訊
 ### [Demo](https://ryin0424.github.io/Taichunung-Bus_VanillaJS/)
 
+![Demo](https://i.imgur.com/aV9p204.gif)
+
 - 使用技術
   - 原生 JS
   - xmlRequest
+  - Firebase RealTime Database
+  - ~~Firebase Facebook auth loin API~~
+    - 太久沒使用，FB develop API 被取消啦 QQ
   - 手刻 SCSS layout
   - CSS animation
   - ~~一顆青澀不怕丟臉的心~~
+
+- 使用說明
+  - 訪客使用者
+    - 點選 公車路線項目即可查詢該號公車目前的進站情況
+    - 公車路線頁面可切換「來程」或「去程」(起點與終點相反)
+    - 使用最上方的搜尋可快速搜尋要找的公車路線
+    - 電腦版右方(手機版)下方，可切換繁體或是英文介面
+  - ~~已登入的使用者~~ (目前無法使用)
+    - ~~可以釘選最愛公車路線~~
+      - ~~被釘選的路線會顯示於列表的最上層~~
+    - 其餘功能與訪客相同
+
+---
 
 開發心得全文~~不同步~~刊載於「it邦幫忙 2018年鐵人賽 」
 
@@ -21,4 +39,8 @@
 > - [Day26 「親愛的，我把 api Call 爆了」 ─ status of 429 (Too Many Requests)](https://ithelp.ithome.com.tw/articles/10197146)
 > - [Day27 「使用 setInterval 排程囉」 ─ 嗯？好像不太對勁啊..？](https://ithelp.ithome.com.tw/articles/10197304)
 > - [Day28 「使用網頁等公車」 ─ 就來做搜尋功能囉！](https://ithelp.ithome.com.tw/articles/10197402)
+
+---
+![小動畫](https://i.imgur.com/B4N9sDl.gif)
+同樣~~不怎麼有美感~~但筆者當初做得很開心的小動畫
 
