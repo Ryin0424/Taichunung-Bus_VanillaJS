@@ -5,7 +5,7 @@
 
 ![Demo](https://i.imgur.com/aV9p204.gif)
 
-- 使用技術
+## 使用技術
   - 原生 JS
   - xmlRequest
   - Firebase RealTime Database
@@ -15,7 +15,7 @@
   - CSS animation
   - ~~一顆青澀不怕丟臉的心~~
 
-- 使用說明
+## 使用說明
   - 訪客使用者
     - 點選 公車路線項目即可查詢該號公車目前的進站情況
     - 公車路線頁面可切換「來程」或「去程」(起點與終點相反)
@@ -28,7 +28,9 @@
 
 ---
 
-開發心得全文~~不同步~~刊載於「it邦幫忙 2018年鐵人賽 」
+## 開發筆記
+
+心得全文~~不同步~~刊載於「it邦幫忙 2018年鐵人賽 」
 
 > - [Day20 「使用網頁等公車」 ─ 台中公車動態系統 - 序](https://ithelp.ithome.com.tw/articles/10196509)
 > - [Day21 「使用網頁等公車」 ─ 尋找 api 去囉！](https://ithelp.ithome.com.tw/articles/10196656)
@@ -41,6 +43,8 @@
 > - [Day28 「使用網頁等公車」 ─ 就來做搜尋功能囉！](https://ithelp.ithome.com.tw/articles/10197402)
 
 ---
+## 不重要的雜談
+
 ![小動畫](https://i.imgur.com/B4N9sDl.gif)
 同樣~~不怎麼有美感~~但筆者當初做得很開心的小動畫
 
