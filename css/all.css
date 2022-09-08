@@ -516,6 +516,22 @@ input.search {
   .bus span {
     margin-left: 10px; }
 
+
+.fa-bell{
+ color: #495057;
+ font-size: 30px;
+ top: 15px;
+ position: absolute;
+ transition: color .1s ease, opacity .1s ease;
+ opacity: 0;
+}
+  .fa-bell.hover{
+    opacity: 1;
+  }
+  .fa-bell.active{
+    color: #0281ff
+  }
+
 @media (max-width: 768px) {
   .btn {
     width: 230px; }
