@@ -4,7 +4,7 @@ const favorite = document.getElementById('favorite');
 let OriginalList = ""; // 儲存第一次 Request 時拉回來跑完 for 迴圈的表單 (原始表單)
 
 const xhr = new XMLHttpRequest();
-xhr.open('get','https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$top=300&$format=JSON');//
+xhr.open('get','https://tdx.transportdata.tw/api/basic/v2/Bus/Route/City/Taichung?$top=300&$format=JSON');//
 xhr.send(null);
 xhr.onload = function () {
     data = JSON.parse(xhr.responseText);

@@ -3,7 +3,7 @@ var list = document.getElementById('list');
 
 
 const xhr = new XMLHttpRequest();
-xhr.open('get','https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taichung?$top=300&$format=JSON');//
+xhr.open('get','https://tdx.transportdata.tw/api/basic/v2/Bus/Route/City/Taichung?$top=300&$format=JSON');//
 xhr.send(null);
 xhr.onload = function () {
     data = JSON.parse(xhr.responseText);
